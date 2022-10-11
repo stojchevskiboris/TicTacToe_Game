@@ -3,40 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <title>Tic Tac Toe Game</title>
+    <link rel="icon" type="image" href="https://cdn-icons-png.flaticon.com/128/2911/2911156.png">
+
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <style>
+        body{
+            background: #cff1ff;
+
+        }
         #game{
-            width: 300px;
+            padding-top: 30px;
+            margin: auto;
+            width: 550px;
+            text-align-last: center;
+
+        }
+        #headLine{
+            font-family: monospace;
+            font-size: 50px;
+            font-weight: bold;
+            color: royalblue;
         }
         .cell{
-            border: 1px solid grey;
-            width: 80px;
-            height: 80px;
+            border: 2px solid grey;
+            width: 160px;
+            height: 160px;
             display: inline-block;
         }
         .cell:hover{
-            background:whitesmoke;
+            border-color: blue;
         }
         .optX{
             background-image: url("https://icon-library.com/images/cross-icon/cross-icon-29.jpg");
-            background-size: 80px 80px;
+            background-size: cover;
             background-repeat: no-repeat;
         }
         .optO{
-            background-image: url(https://cdn-icons-png.flaticon.com/512/33/33759.png);
-            background-size: 60px 60px;
+            background-image: url("https://icon-library.com/images/create-an-icon/create-an-icon-25.jpg");
+            background-size: cover;
             background-repeat: no-repeat;
-            background-position-x: 10px;
-            background-position-y: 10px;
         }
         .selected{
             pointer-events: none;
         }
         #youWon{
-            color: #14c900;
+            color: limegreen;
             display: none;
+        }
+        #player{
+            font-size: 40px;
+            font-family: monospace;
+
+        }
+        #draw{
+            display: none;
+            font-size: 40px;
+            color: orange;
+            font-family: monospace;
+        }
+        #start{
+            font-size: 40px;
+            border-radius: 10px;
+            background: #b9ffb9;
+            font-family: monospace;
+        }
+        #start:hover{
+            background: #7af57a;
+        }
+        #git{
+            font-family: monospace;
         }
     </style>
     <script>
@@ -75,7 +112,8 @@
                     document.getElementById("turn").innerText="2"
                 }
                 if (totalTurns==9){
-                    //display draw
+                    $("#player").css('display','none')
+                    $("#draw").css('display','block')
                 }
             }
 
@@ -223,6 +261,20 @@
                     check();
                 })
             } else {
+                $("#c1").mousedown(function (){
+                    if (turn==1){
+                        $("#c1").addClass("optX selected")
+                        c1=1;
+                        turn = 2;
+                        totalTurns++;
+                    } else {
+                        $("#c1").addClass("optO selected")
+                        c1=2
+                        turn = 1;
+                        totalTurns++;
+                    }
+                    check();
+                })
                 $("#c2").mousedown(function (){
                     if (turn==1){
                         $("#c2").addClass("optX selected")
@@ -336,35 +388,39 @@
                     check();
                 })
             }
-
-
-
-
-
-
-
         })
     </script>
 </head>
 <body>
+
 <div id="game">
+    <p id="headLine">Tic-Tac-Toe Game</p>
     <div class="row">
-        <div class="cell" id="c1"><span id="o1"></span></div>
-        <div class="cell" id="c2"><span id="o2"></span></div>
-        <div class="cell" id="c3"><span id="o3"></span></div>
+        <div class="cell" id="c1"></div>
+        <div class="cell" id="c2"></div>
+        <div class="cell" id="c3"></div>
     </div>
   <div class="row">
-        <div class="cell" id="c4"><span id="o4"></span></div>
-        <div class="cell" id="c5"><span id="o5"></span></div>
-        <div class="cell" id="c6"><span id="o6"></span></div>
+        <div class="cell" id="c4"></div>
+        <div class="cell" id="c5"></div>
+        <div class="cell" id="c6"></div>
   </div>
   <div class="row">
-        <div class="cell" id="c7"><span id="o7"></span></div>
-        <div class="cell" id="c8"><span id="o8"></span></div>
-        <div class="cell" id="c9"><span id="o9"></span></div>
+        <div class="cell" id="c7"></div>
+        <div class="cell" id="c8"></div>
+        <div class="cell" id="c9"></div>
   </div>
+    <br><br>
+
+
+    <div id="player">Player <span id="turn">1</span>, <span id="yourTurn">your turn</span><span id="youWon">you won.</span> </div>
+    <div id="draw">Draw</div>
+
+    <br><br><br>
+    <button id="start">NEW GAME</button>
+    <br><br><br><br>
+    <p id="git">&copy; Made by: <a href="https://github.com/stojchevskiboris">Boris Stojchevski</a> </p>
 </div>
-<button id="start">Start new game</button>
-<div id="player">Player <span id="turn">1</span>, <span id="yourTurn">your turn</span><span id="youWon">you won.</span> </div>
+
 </body>
 </html>
