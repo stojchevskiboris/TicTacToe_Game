@@ -1,0 +1,66 @@
+body{
+    background: #cff1ff;
+
+}
+#game{
+    padding-top: 30px;
+    margin: auto;
+    width: 550px;
+    text-align-last: center;
+
+}
+#headLine{
+    font-family: monospace;
+    font-size: 50px;
+    font-weight: bold;
+    color: royalblue;
+}
+.cell{
+    border: 2px solid grey;
+    width: 160px;
+    height: 160px;
+    display: inline-block;
+}
+.cell:hover{
+    border-color: blue;
+}
+.optX{
+    background-image: url("https://icon-library.com/images/cross-icon/cross-icon-29.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.optO{
+    background-image: url("https://icon-library.com/images/create-an-icon/create-an-icon-25.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.selected{
+    pointer-events: none;
+}
+#youWon{
+    color: limegreen;
+    display: none;
+}
+#player{
+    font-size: 40px;
+    font-family: monospace;
+
+}
+#draw{
+    display: none;
+    font-size: 40px;
+    color: orange;
+    font-family: monospace;
+}
+#start{
+    font-size: 40px;
+    border-radius: 10px;
+    background: #b9ffb9;
+    font-family: monospace;
+}
+#start:hover{
+    background: #7af57a;
+}
+#git{
+    font-family: monospace;
+}
