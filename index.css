@@ -25,12 +25,12 @@ body{
     border-color: blue;
 }
 .optX{
-    background-image: url("https://icon-library.com/images/cross-icon/cross-icon-29.jpg");
+    background-image: url("cross.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 .optO{
-    background-image: url("https://icon-library.com/images/create-an-icon/create-an-icon-25.jpg");
+    background-image: url("circle.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
